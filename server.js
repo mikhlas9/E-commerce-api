@@ -1,5 +1,6 @@
 const express = require("express")
 const dotenv = require("dotenv");
+const cors = require("cors")
 const connectDB = require("./config/db")
 
 const swaggerJSDoc = require("swagger-jsdoc")
@@ -20,6 +21,7 @@ connectDB();
 const app = express();
 
 app.use(express.json())
+app.use(cors())
 
 
 app.get("/", (req,res)=> {
@@ -40,7 +42,8 @@ const options = {
       },
       servers:[
         {
-            url: "http://localhost:5000/"
+            url: "http://localhost:5000/",
+            url: "https://e-commerce-api-73le.onrender.com"
         }
       ]
     },
