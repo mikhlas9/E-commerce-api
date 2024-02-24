@@ -9,7 +9,7 @@ const registerUser = asyncHandler(async(req,res) => {
    const userExists = await User.findOne({email})
 
    if(userExists){
-    return res.status(404).json({ message: "User already exists" });
+    return res.status(409).json({ message: "User already exists" });
    }
 
    const salt  = await bcrypt.genSalt(10);
@@ -40,13 +40,13 @@ const authUser = asyncHandler(async(req,res) => {
 
      const user = await User.findOne({ email });
      if(!user){
-      return res.status(404).json({ message: "No user Exists" });
+      return res.status(401).json({ message: "No user Exists" });
      }
 
      const pwdCompare = await bcrypt.compare(req.body.password, user.password)
 
      if(!pwdCompare){
-      return res.status(404).json({ message: "Incorrect Password" });
+      return res.status(401).json({ message: "Incorrect Password" });
      }
      
      if(user && pwdCompare){

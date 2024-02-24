@@ -2,6 +2,9 @@ const express = require("express")
 const dotenv = require("dotenv");
 const connectDB = require("./config/db")
 
+const swaggerJSDoc = require("swagger-jsdoc")
+const swaggerUi = require("swagger-ui-express")
+
 const userRoutes = require("./routes/userRoutes")
 const categoryRoutes = require("./routes/categoryRoutes")
 const cartRoutes = require("./routes/cartRoutes")
@@ -22,6 +25,39 @@ app.use(express.json())
 app.get("/", (req,res)=> {
     res.send("hello")
 })
+
+
+
+
+// Define options for swagger-jsdoc
+const options = {
+    definition: {
+      openapi: '3.0.0',
+      info: {
+        title: 'E-Commerce API',
+        version: '1.0.0',
+        description: 'Documentation for the E-Commerce API',
+      },
+      servers:[
+        {
+            url: "http://localhost:5000/"
+        }
+      ]
+    },
+    // Path to the YAML or JSON file containing the Swagger documentation
+    apis: ['./swagger.yaml'],
+  };
+  
+  // Initialize swagger-jsdoc
+  const swaggerSpec = swaggerJSDoc(options);
+  
+  // Serve Swagger UI at /api-docs endpoint
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+  
+
+
+
 
 app.use("/", userRoutes)
 app.use("/", categoryRoutes)

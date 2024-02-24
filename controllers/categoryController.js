@@ -20,7 +20,7 @@ const addCategory = asyncHandler(async (req, res) => {
         let cat = await Category.findOne({category});
 
         if(cat){
-            return res.status(404).json({ message: "Category already exists" });
+            return res.status(409).json({ message: "Category already exists" });
         }
         
         const addCat = await Category.create({
