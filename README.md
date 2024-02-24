@@ -1,9 +1,13 @@
-E commerce API
+E-commerce API
+
+Welcome to the E-commerce API! This API provides endpoints for managing user accounts, categories, products, shopping carts, and orders in an e-commerce platform.
 
 api docs
 https://e-commerce-api-73le.onrender.com/api-docs/
  or 
 http://localhost:5000/api-docs/
+
+![image](https://github.com/mikhlas9/E-commerce-api/assets/112476101/b5f388c6-aec5-4740-a51c-b90bbda53016)
 
 
 -> User Login and Registration:
