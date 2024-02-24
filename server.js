@@ -43,7 +43,11 @@ const options = {
       servers:[
         {
             url: "http://localhost:5000/",
-            url: "https://e-commerce-api-73le.onrender.com"
+            description: "Local development server",
+        },
+        {
+            url: "https://e-commerce-api-73le.onrender.com",
+            description: "Production server"
         }
       ]
     },
