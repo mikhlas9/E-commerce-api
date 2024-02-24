@@ -2,8 +2,8 @@ E commerce API
 
 api docs
 https://e-commerce-api-73le.onrender.com/api-docs/
-or
-http://localhost:5000/
+ or 
+http://localhost:5000/api-docs/
 
 
 -> User Login and Registration:
